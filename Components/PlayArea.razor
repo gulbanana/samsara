@@ -4,11 +4,20 @@
 
 <div class="play-area">
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <div class="life">You are a mayfly, <span class="trait">brief</span> and <span class="trait">desperate</span>.</div>
-        <div style="display: flex">
-            <ActButton>LIVE</ActButton>
-            <ActButton>MATE</ActButton>
-            <ActButton>DIE</ActButton>
-        </div>
+        @if (State.Alive)
+        {
+            <div class="life">You are a mayfly, <span class="trait">brief</span> and <span class="trait">desperate</span>.</div>
+            <div style="display: flex; gap: 15px;">
+                <ActButton>FLY</ActButton>
+                <ActButton>MATE</ActButton>
+                <ActButton>DIE</ActButton>
+            </div>
+            <progress style="width: 100%; margin-top: 60px;" max="10" value="@(State.LifeSpan.Value.TotalSeconds)"></progress>
+        }
+        else
+        {
+            <div class="life">You are a unborn soul, without direction or purpose.</div>
+            <ActButton FontSize=60 OnClick="State.DoLive">LIVE</ActButton>
+        }
     </div>
 </div>
