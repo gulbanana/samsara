@@ -1,0 +1,13 @@
+.play-area {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.life-title {
+    font-size: 24px;
+}
+
+.trait {
+    font-weight: 300;
+}
