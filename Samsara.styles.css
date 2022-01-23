@@ -1,0 +1,64 @@
+/* /Components/PlayArea.razor.rz.scp.css */
+.play-area[b-vnozfzfhp0] {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.life-title[b-vnozfzfhp0] {
+    font-size: 24px;
+}
+
+.trait[b-vnozfzfhp0] {
+    font-weight: 300;
+}
+/* /Pages/Index.razor.rz.scp.css */
+nav[b-ood7dvpci8] {
+    height: 60px;
+    background-image: url("nav.png");
+    background-repeat: repeat-x;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+nav label[b-ood7dvpci8], nav button[b-ood7dvpci8] {
+    height: 42px;
+    margin: 6px;
+}
+
+nav > label[b-ood7dvpci8] {
+
+    display: flex;
+    align-items: center;
+}
+
+.commands[b-ood7dvpci8] {
+    flex: 1;
+}
+
+button[b-ood7dvpci8] {
+    color: white;
+    background: black;
+    border: 3px solid white;
+    border-radius: 6px;
+}
+
+button:hover[b-ood7dvpci8] {
+    background: #333;
+}
+
+button:active[b-ood7dvpci8] {
+    background: #666;
+}
+
+input[type=checkbox][b-ood7dvpci8] {
+    margin: 6px;
+    width: 24px;
+    height: 30px;
+}
+
+svg text[b-ood7dvpci8] {
+    user-select: none;
+}
