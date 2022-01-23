@@ -1,0 +1,6 @@
+﻿@code {
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public int FontSize { get; set; } = 45;
+}
+
+<button class="act-button"><span class="act-caption" style="--size: @(FontSize)px">@ChildContent</span></button>
