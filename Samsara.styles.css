@@ -1,3 +1,38 @@
+/* /Components/ActButton.razor.rz.scp.css */
+.act-button[b-n79ysiisld] {
+    width: 120px;
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-style: none;
+    color: white;
+    background-color: #3498db;
+    border-radius: 100%;
+    overflow: hidden;
+    text-align: center;
+    padding: 0;
+}
+
+.act-button[b-n79ysiisld]:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 100%;
+}
+
+.act-button:active[b-n79ysiisld] {
+    background-color: #2980b9;
+}
+
+.act-caption[b-n79ysiisld] {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 90%;
+    font-family: Vinter;
+    font-size: var(--size);
+}
+
 /* /Components/PlayArea.razor.rz.scp.css */
 .play-area[b-vnozfzfhp0] {
     display: flex;
@@ -5,12 +40,13 @@
     padding: 100px;
 }
 
-.life-title[b-vnozfzfhp0] {
-    font-size: 24px;
+.life[b-vnozfzfhp0] {
+    font-size: 30px;
+    font-family: Cormorant;
 }
 
 .trait[b-vnozfzfhp0] {
-    font-weight: 300;
+    font-weight: bold;
 }
 /* /Pages/Index.razor.rz.scp.css */
 nav[b-ood7dvpci8] {
