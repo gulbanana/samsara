@@ -2,22 +2,24 @@
     [Parameter] public Game State { get; set; }
 }
 
-<div class="play-area">
-    <div style="display: flex; flex-direction: column; align-items: center;">
-        @if (State.Alive)
-        {
+<div class="play-area">    
+    @if (!State.Alive)
+    {
+        <Column Gutter="60">
+            <div class="life">You are a unborn soul, without direction or purpose.</div>
+            <ActButton FontSize=60 OnClick="State.DoLive">LIVE</ActButton>
+        </Column>        
+    }
+    else
+    {
+        <Column Gutter="60">
             <div class="life">You are a mayfly, <span class="trait">brief</span> and <span class="trait">desperate</span>.</div>
-            <div style="display: flex; gap: 15px;">
+            <Row Gutter="15">
                 <ActButton>FLY</ActButton>
                 <ActButton>MATE</ActButton>
                 <ActButton>DIE</ActButton>
-            </div>
-            <progress style="width: 100%; margin-top: 60px;" max="10" value="@(State.LifeSpan.Value.TotalSeconds)"></progress>
-        }
-        else
-        {
-            <div class="life">You are a unborn soul, without direction or purpose.</div>
-            <ActButton FontSize=60 OnClick="State.DoLive">LIVE</ActButton>
-        }
-    </div>
+            </Row>
+            <progress style="width: 100%" max="10" value="@(State.LifeSpan.Value.TotalSeconds)"></progress>
+        </Column>
+    }
 </div>
