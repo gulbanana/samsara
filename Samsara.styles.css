@@ -33,6 +33,13 @@
     font-size: var(--size);
 }
 
+/* /Components/Column.razor.rz.scp.css */
+.column[b-duh10to4wn] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gutter);
+}
 /* /Components/PlayArea.razor.rz.scp.css */
 .play-area[b-vnozfzfhp0] {
     display: flex;
@@ -43,11 +50,17 @@
 .life[b-vnozfzfhp0] {
     font-size: 30px;
     font-family: Cormorant;
-    margin-bottom: 60px;
 }
 
 .trait[b-vnozfzfhp0] {
     font-weight: bold;
+}
+/* /Components/Row.razor.rz.scp.css */
+.row[b-g2lno7n46s] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--gutter);
 }
 /* /Pages/Index.razor.rz.scp.css */
 nav[b-ood7dvpci8] {
