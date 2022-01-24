@@ -5,7 +5,8 @@ public class Game
     public int Width { get; set; }
     public int Height { get; set; }
     public bool Alive { get; set; }
-    public TimeSpan? LifeSpan { get; set; }
+    public TimeSpan LifeSpan { get; set; }
+    public int Karma { get; set; }
 
     public void Tick(TimeSpan elapsed)
     {
@@ -23,6 +24,17 @@ public class Game
     public void DoLive()
     {
         Alive = true;
-        LifeSpan = TimeSpan.FromSeconds(10);
+        LifeSpan = TimeSpan.FromSeconds(20);
+    }
+
+    public void DoMate()
+    {
+        Karma++;
+    }
+
+    public void DoDie()
+    {
+        Alive = false;
+        LifeSpan = TimeSpan.Zero;
     }
 }
