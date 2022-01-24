@@ -42,9 +42,13 @@
 }
 /* /Components/PlayArea.razor.rz.scp.css */
 .play-area[b-vnozfzfhp0] {
-    display: flex;
-    justify-content: center;
-    padding: 100px;
+    display: grid;
+    grid-template-areas:
+        'stats .    .'
+        '.     life .'
+        '.     .    .';
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 100px 1fr 100px;
 }
 
 .life[b-vnozfzfhp0] {
