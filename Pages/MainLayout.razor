@@ -1,5 +1,55 @@
 ﻿@inherits LayoutComponentBase
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+@code {
+    private readonly Game state = new();
+    private IJSObjectReference module;
+    private ElementReference mainElement;
+    private double mainLeft;
+    private double mainTop;
+    private bool viewportReady;
 
-<PageTitle>Samsara</PageTitle>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Index.razor.js");
+            await module.InvokeVoidAsync("subscribe", mainElement, DotNetObjectReference.Create(this));
+        }
+    }
 
-@Body
+    public async ValueTask DisposeAsync()
+    {
+        if (module != null)
+        {
+            await module.InvokeVoidAsync("unsubscribe");
+        }        
+    }
+
+    [JSInvokable]
+    public void SetDimensions(double left, double top, int width, int height)
+    {
+        mainLeft = left;
+        mainTop = top;
+        state.Width = width;
+        state.Height = height;
+        viewportReady = true;
+        StateHasChanged();
+    }
+
+    private void OnUpdate(TimeSpan elapsed)
+    {
+        state.Tick(elapsed);
+    }
+}
+
+<main @ref="mainElement">
+    @if (viewportReady)
+    {
+        <RAF UpdateState="OnUpdate">
+            <CascadingValue Value="state">
+                @Body
+            </CascadingValue>
+        </RAF>
+    }
+</main>

@@ -6,7 +6,7 @@
     cursor: pointer;
     border-style: none;
     color: white;
-    background-color: #3498db;
+    background-color: var(--color-action);
     border-radius: 100%;
     overflow: hidden;
     text-align: center;
@@ -21,7 +21,7 @@
 }
 
 .act-button:active {
-    background-color: #2980b9;
+    background-color: var(--color-action-active);
 }
 
 .act-caption {

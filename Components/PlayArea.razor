@@ -3,11 +3,20 @@
 }
 
 <div class="play-area">
-    <div style="grid-area: stats">
-        @if (State.Karma > 0)
-        {
-            <div>Karma: @(State.Karma)</div>
-        }
+    <div style="grid-area: stats; font-size: 30px; font-family: Vinter">
+        <Column>
+            <Row Gutter="15">
+                @if (State.Karma > 0)
+                {
+                    <span>Karma: @(State.Karma)</span>
+                }
+
+                @if (State.Rebirths > 0)
+                {
+                    <span>Rebirths: @(State.Rebirths)</span>
+                }
+            </Row>
+        </Column>
     </div>
 
     <div style="grid-area: life; justify-self: center">

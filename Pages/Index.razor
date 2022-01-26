@@ -1,53 +1,7 @@
 ﻿@page "/"
-@implements IAsyncDisposable
-@inject IJSRuntime JS
 @code {
-    private readonly Game state = new();
-    private IJSObjectReference module;
-    private ElementReference mainElement;
-    private double mainLeft;
-    private double mainTop;
-    private bool viewportReady;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            module = await JS.InvokeAsync<IJSObjectReference>("import", "./Pages/Index.razor.js");
-            await module.InvokeVoidAsync("subscribe", mainElement, DotNetObjectReference.Create(this));
-        }
-    }
-
-    public async ValueTask DisposeAsync()
-    {
-        if (module != null)
-        {
-            await module.InvokeVoidAsync("unsubscribe");
-        }        
-    }
-
-    [JSInvokable]
-    public void SetDimensions(double left, double top, int width, int height)
-    {
-        mainLeft = left;
-        mainTop = top;
-        state.Width = width;
-        state.Height = height;
-        viewportReady = true;
-        StateHasChanged();
-    }
-
-    private void OnUpdate(TimeSpan elapsed)
-    {
-        state.Tick(elapsed);
-    }
+    [CascadingParameter] public Game State { get; set; }    
 }
 
-<main @ref="mainElement">
-    @if (viewportReady)
-    {
-        <RAF UpdateState="OnUpdate">
-            <PlayArea State="state" />            
-        </RAF>
-    }
-</main>
+<PageTitle>Samsara</PageTitle>
+<PlayArea State="State" />

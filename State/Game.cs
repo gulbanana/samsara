@@ -7,6 +7,7 @@ public class Game
     public bool Alive { get; set; }
     public TimeSpan LifeSpan { get; set; }
     public int Karma { get; set; }
+    public int Rebirths { get; set; } = -1;
 
     public void Tick(TimeSpan elapsed)
     {
@@ -23,6 +24,7 @@ public class Game
 
     public void DoLive()
     {
+        Rebirths++;
         Alive = true;
         LifeSpan = TimeSpan.FromSeconds(20);
     }
