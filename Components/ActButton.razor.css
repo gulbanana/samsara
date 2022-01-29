@@ -1,5 +1,6 @@
 .act-button {
-    width: 120px;
+    width: 4em;
+    max-height: 4em;
     text-decoration: none;
     display: inline-block;
     outline: none;

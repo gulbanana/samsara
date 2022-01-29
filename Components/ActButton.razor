@@ -1,7 +1,7 @@
 ﻿@code {
     [Parameter] public RenderFragment ChildContent { get; set; }
-    [Parameter] public int FontSize { get; set; } = 45;
+    [Parameter] public double FontSize { get; set; } = 1.0;
     [Parameter] public Action OnClick { get; set; }
 }
 
-<button class="act-button" @onclick="OnClick"><span class="act-caption" style="--size: @(FontSize)px">@ChildContent</span></button>
+<button class="act-button" @onclick="OnClick"><span class="act-caption" style="--size: @(FontSize)em">@ChildContent</span></button>

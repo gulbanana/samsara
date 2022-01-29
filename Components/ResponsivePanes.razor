@@ -1,0 +1,17 @@
+﻿@code {
+    [Parameter] public RenderFragment MainContent { get; set; }
+    [Parameter] public RenderFragment FirstPane { get; set; }
+    [Parameter] public RenderFragment SecondPane { get; set; }
+}
+
+<article id="panes">
+    <section id="content">
+        @MainContent
+    </section>
+    <aside id="first">
+        @FirstPane
+    </aside>
+    <aside id="second">
+        @SecondPane
+    </aside>
+</article>

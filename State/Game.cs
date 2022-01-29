@@ -8,6 +8,7 @@ public class Game
     public TimeSpan LifeSpan { get; set; }
     public int Karma { get; set; }
     public int Rebirths { get; set; } = -1;
+    public int Eggs { get; set; }
 
     public void Tick(TimeSpan elapsed)
     {
@@ -32,11 +33,13 @@ public class Game
     public void DoMate()
     {
         Karma++;
+        Eggs += Random.Shared.Next(500, 3000);
     }
 
     public void DoDie()
     {
         Alive = false;
         LifeSpan = TimeSpan.Zero;
+        Eggs = 0;
     }
 }

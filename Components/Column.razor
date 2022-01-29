@@ -1,8 +1,8 @@
 ﻿@code {
     [Parameter] public RenderFragment ChildContent { get; set; }
-    [Parameter] public int Gutter { get; set; } = 0;
+    [Parameter] public string Gutter { get; set; } = "0";
 }
 
-<div class="column" style="--gutter: @(Gutter)px">
+<div class="column" style="--gutter: @(Gutter)">
     @ChildContent
 </div>

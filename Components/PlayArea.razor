@@ -2,41 +2,46 @@
     [Parameter] public Game State { get; set; }
 }
 
-<div class="play-area">
-    <div style="grid-area: stats; font-size: 30px; font-family: Vinter">
-        <Column>
-            <Row Gutter="15">
-                @if (State.Karma > 0)
-                {
-                    <span>Karma: @(State.Karma)</span>
-                }
-
-                @if (State.Rebirths > 0)
-                {
-                    <span>Rebirths: @(State.Rebirths)</span>
-                }
-            </Row>
-        </Column>
-    </div>
-
-    <div style="grid-area: life; justify-self: center">
+<ResponsivePanes>
+    <MainContent>
         @if (!State.Alive)
         {
-            <Column Gutter="60">
+            <Column Gutter="2em">
                 <div class="life">You are a unborn soul, without direction or purpose.</div>
-                <ActButton FontSize=60 OnClick="State.DoLive">LIVE</ActButton>
+                <ActButton FontSize="2" OnClick="State.DoLive">LIVE</ActButton>
             </Column>        
         }
         else
         {
-            <Column Gutter="60">
+            <Column Gutter="2em">
                 <div class="life">You are a mayfly, <span class="trait">brief</span> and <span class="trait">desperate</span>.</div>
                 <Row Gutter="15">
-                    <ActButton OnClick="State.DoMate">MATE</ActButton>
-                    <ActButton OnClick="State.DoDie">DIE</ActButton>
+                    <ActButton FontSize="1.5" OnClick="State.DoMate">MATE</ActButton>
+                    <ActButton FontSize="1.5" OnClick="State.DoDie">DIE</ActButton>
                 </Row>
                 <progress style="width: 100%" max="20" value="@(State.LifeSpan.TotalSeconds)"></progress>
             </Column>
         }
-    </div>
-</div>
+    </MainContent>
+
+    <FirstPane>
+        @if (State.Eggs > 0)
+        {
+            <span class="stat">Eggs: @(State.Eggs)</span>
+        }
+    </FirstPane>
+
+    <SecondPane>
+        <Row Gutter="15">
+            @if (State.Karma > 0)
+            {
+                <span class="stat">Karma: @(State.Karma)</span>
+            }
+
+            @if (State.Rebirths > 0)
+            {
+                <span class="stat">Rebirths: @(State.Rebirths)</span>
+            }
+        </Row>
+    </SecondPane>
+</ResponsivePanes>

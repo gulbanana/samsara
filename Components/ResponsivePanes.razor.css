@@ -1,0 +1,62 @@
+/* By default, display the panes on either side of the main content. */
+#panes {
+    height: 100%;
+    padding: 15px;
+    display: grid;
+
+    grid-template-areas: 'first content second';
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-rows: 1fr;
+
+    font-size: 30px;
+    font-family: Cormorant;
+}
+
+#content {
+    grid-area: content;
+    justify-self: center;
+}
+
+#first {
+    grid-area: first;
+    justify-self: start;
+}
+
+#second {
+    grid-area: second;
+    justify-self: end;
+}
+
+/* On a sub-tablet screen, display the side panes below the main content and scale text. */
+@media (max-width: 1024px) {
+    #panes {
+        grid-template-areas: 'content' 'first' 'second';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto;
+
+        font-size: 8vw;
+    }
+
+    #first, #second {
+        justify-self: center;
+    }
+
+    @media (orientation: landscape) {
+        #panes {
+            font-size: 8vh;
+        }
+    }
+}
+
+/* On HD screens, add extra insets */
+@media (min-width: 1280px) {
+    #panes {
+        padding: 60px;
+    }
+}
+
+@media (min-width: 1920px) {
+    #panes {
+        padding: 120px;
+    }
+}

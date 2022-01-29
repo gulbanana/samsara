@@ -1,20 +1,8 @@
-.play-area {
-    height: 100%;
-    display: grid;
-    grid-template-areas:
-        '.   .   .'
-        '. life  .'
-        '. stats .'
-        '.   .   .';
-    grid-template-columns: 100px 1fr 100px;
-    grid-template-rows: 100px 1fr auto 100px;
-}
-
-.life {
-    font-size: 30px;
-    font-family: Cormorant;
-}
-
 .trait {
     font-weight: bold;
+}
+
+.stat {
+    font-family: Vinter;
+    white-space: nowrap;
 }
