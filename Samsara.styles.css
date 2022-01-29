@@ -44,7 +44,8 @@
 }
 /* /Components/ActButton.razor.rz.scp.css */
 .act-button[b-n79ysiisld] {
-    width: 120px;
+    width: 4em;
+    max-height: 4em;
     text-decoration: none;
     display: inline-block;
     outline: none;
@@ -85,30 +86,82 @@
     gap: var(--gutter);
 }
 /* /Components/PlayArea.razor.rz.scp.css */
-.play-area[b-vnozfzfhp0] {
-    height: 100%;
-    display: grid;
-    grid-template-areas:
-        '.   .   .'
-        '. life  .'
-        '. stats .'
-        '.   .   .';
-    grid-template-columns: 100px 1fr 100px;
-    grid-template-rows: 100px 1fr auto 100px;
+.trait[b-vnozfzfhp0] {
+    font-weight: bold;
 }
 
-.life[b-vnozfzfhp0] {
+.stat[b-vnozfzfhp0] {
+    font-family: Vinter;
+    white-space: nowrap;
+}
+/* /Components/ResponsivePanes.razor.rz.scp.css */
+/* By default, display the panes on either side of the main content. */
+#panes[b-0101ckmzrb] {
+    height: 100%;
+    padding: 15px;
+    display: grid;
+
+    grid-template-areas: 'first content second';
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-rows: 1fr;
+
     font-size: 30px;
     font-family: Cormorant;
 }
 
-.trait[b-vnozfzfhp0] {
-    font-weight: bold;
+#content[b-0101ckmzrb] {
+    grid-area: content;
+    justify-self: center;
+}
+
+#first[b-0101ckmzrb] {
+    grid-area: first;
+    justify-self: start;
+}
+
+#second[b-0101ckmzrb] {
+    grid-area: second;
+    justify-self: end;
+}
+
+/* On a sub-tablet screen, display the side panes below the main content and scale text. */
+@media (max-width: 1024px) {
+    #panes[b-0101ckmzrb] {
+        grid-template-areas: 'content' 'first' 'second';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto;
+
+        font-size: 8vw;
+    }
+
+    #first[b-0101ckmzrb], #second[b-0101ckmzrb] {
+        justify-self: center;
+    }
+
+    @media (orientation: landscape) {
+        #panes[b-0101ckmzrb] {
+            font-size: 8vh;
+        }
+    }
+}
+
+/* On HD screens, add extra insets */
+@media (min-width: 1280px) {
+    #panes[b-0101ckmzrb] {
+        padding: 60px;
+    }
+}
+
+@media (min-width: 1920px) {
+    #panes[b-0101ckmzrb] {
+        padding: 120px;
+    }
 }
 /* /Components/Row.razor.rz.scp.css */
 .row[b-g2lno7n46s] {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: var(--gutter);
 }
