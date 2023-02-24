@@ -11,12 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
       
       - name: Setup .NET SDK      
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '7.0.x'
 
       - name: Publish .NET Project
         run: dotnet publish -c Release -o artifacts --nologo
@@ -34,7 +35,7 @@ jobs:
           base_href: /${{ github.event.repository.name }}/
         
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: artifacts/wwwroot
