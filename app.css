@@ -12,3 +12,7 @@
     --color-action: #3498db;
     --color-action-active: #2980b9;
 }
+
+.trait {
+    font-weight: bold;
+}
