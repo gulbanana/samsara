@@ -12,8 +12,8 @@ public class Game
     public TimeSpan LifeSpan { get; set; }
     public TimeSpan LifeLeft { get; set; }
     public MarkupString LifeText { get; set; }
-    public IReadOnlyList<Act> LifeActions { get; set; }
-    public IReadOnlyList<Res> LifeResources { get; set; }
+    public IReadOnlyList<Act> LifeActions { get; set; } = Array.Empty<Act>();
+    public IReadOnlyList<Res> LifeResources { get; set; } = Array.Empty<Res>();
 
     public void Tick(TimeSpan elapsed)
     {
@@ -35,26 +35,11 @@ public class Game
 
         if (Karma == 0)
         {
-            LifeText = new(@"You are a mayfly, <span class=""trait"">brief</span> and <span class=""trait"">desperate</span>.");
-            LifeSpan = TimeSpan.FromSeconds(20);
-
-            var eggs = new Res("Eggs");
-
-            LifeResources = new Res[] { eggs };
-
-            void DoMate()
-            {
-                Karma++;
-                eggs.Value += Random.Shared.Next(500, 3000);
-            }
-
-            LifeActions = new Act[] { new("MATE", DoMate), new("DIE", DoDie) };            
+            Lives.Mayfly(this);            
         }
         else
         {
-            LifeText = new(@"You are a dog, <span class=""trait"">loyal</span> and <span class=""trait"">swift</span>.");
-            LifeSpan = TimeSpan.FromSeconds(60);
-            LifeActions = new Act[] { new("WORK", DoDie), new("PLAY", DoDie) };
+            Lives.Dog(this);
         }
 
         LifeLeft = LifeSpan;

@@ -1,9 +1,9 @@
 ﻿@implements IDisposable
 @inject IJSRuntime JS
 @code {
-    [Parameter] public RenderFragment ChildContent { get; set; }
-    [Parameter] public Action<TimeSpan> UpdateState { get; set; }
-    private IJSInProcessObjectReference module;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public required Action<TimeSpan> UpdateState { get; set; }
+    private IJSInProcessObjectReference? module;
     private TimeSpan last;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

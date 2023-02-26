@@ -1,0 +1,8 @@
+@code {
+    [Parameter] public required Exception Exception { get; set; }
+}
+
+<pre class="error">
+@(Exception.GetType().FullName): @Exception.Message
+@Exception.StackTrace
+</pre>

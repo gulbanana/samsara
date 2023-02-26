@@ -1,5 +1,5 @@
 ﻿@code {
-    [Parameter] public Game State { get; set; }
+    [Parameter] public required Game State { get; set; }
 }
 
 <ResponsivePanes>
@@ -27,9 +27,9 @@
     </MainContent>
 
     <FirstPane>
-        @if (State.Eggs > 0)
+        @foreach (var res in State.LifeResources)
         {
-            <span class="stat">Eggs: @(State.Eggs)</span>
+            <span class="stat">@(res.Name): @(res.Value)</span>
         }
     </FirstPane>
 

@@ -1,9 +1,14 @@
 ﻿@page "/"
 @code {
-    [CascadingParameter] public Game State { get; set; }    
+    [CascadingParameter] public required Game State { get; set; }
 }
 
 <PageTitle>Samsara</PageTitle>
 <ErrorBoundary>
-    <PlayArea State="State" />
+    <ChildContent>
+        <PlayArea State="State" />
+    </ChildContent>
+    <ErrorContent>
+        <ErrorView Exception="context" />
+    </ErrorContent>
 </ErrorBoundary>

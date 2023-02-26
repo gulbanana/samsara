@@ -3,7 +3,7 @@
 @inject IJSRuntime JS
 @code {
     private readonly Game state = new();
-    private IJSObjectReference module;
+    private IJSObjectReference? module;
     private ElementReference mainElement;
     private double mainLeft;
     private double mainTop;
