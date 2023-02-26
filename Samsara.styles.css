@@ -13,6 +13,10 @@
     --color-action: #3498db;
     --color-action-active: #2980b9;
 }
+
+.trait {
+    font-weight: bold;
+}
 /* / */
 #blazor-error-ui {
     background: lightyellow;
@@ -118,11 +122,12 @@
     align-items: center;
     gap: var(--gutter);
 }
-/* /Components/PlayArea.razor.rz.scp.css */
-.trait[b-vnozfzfhp0] {
-    font-weight: bold;
+/* /Components/ErrorView.razor.rz.scp.css */
+.error[b-j7hfm07t5l] {
+    background: #b32121;
+    color: white;
 }
-
+/* /Components/PlayArea.razor.rz.scp.css */
 .stat[b-vnozfzfhp0] {
     font-family: Vinter;
     white-space: nowrap;
